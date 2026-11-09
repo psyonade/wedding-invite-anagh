@@ -877,16 +877,24 @@
                 width: 100%;
                 max-width: none;
                 margin: 0;
+                padding: 0;
                 box-shadow: none;
                 overflow: visible;
                 border: none;
             }
 
-            .page-content {
-                padding: 12mm 8mm;
+            /* Disable decorative full-page borders.
+            They can get clipped across printed pages. */
+            .page-shell::before,
+            .page-shell::after {
+                display: none !important;
             }
 
-            /* Make sure scroll animations don't hide content */
+            .page-content {
+                padding: 8mm 5mm;
+            }
+
+            /* Ensure all animated content is visible */
             .js .reveal,
             .reveal {
                 opacity: 1 !important;
@@ -894,7 +902,7 @@
                 transition: none !important;
             }
 
-            /* Preserve clickable Maps and Calendar links */
+            /* Keep interactive links in the PDF */
             .actions {
                 display: flex !important;
                 flex-wrap: wrap;
@@ -913,12 +921,17 @@
                 padding: 7px 11px;
             }
 
-            /* Native share button cannot work inside a PDF */
+            /* Native sharing isn't functional in a PDF */
             #shareButton {
                 display: none !important;
             }
 
-            /* Prevent important sections from splitting across pages */
+            /* Hide favicon attribution */
+            .attribution {
+                display: none !important;
+            }
+
+            /* Avoid splitting individual components */
             .photo-wrap,
             .secondary-photo,
             .event-card,
@@ -1334,7 +1347,8 @@
             }
         });
     </script>
-    <div style="text-align: center; padding: 8px 0 18px; margin-top: 12px; position: relative; z-index: 5;">
+    <div class="print-hide"
+        style="text-align: center; padding: 8px 0 18px; margin-top: 12px; position: relative; z-index: 5;">
         <a href="https://www.flaticon.com/free-icons/invite" target="_blank" rel="noopener noreferrer"
             style="font-family: 'Lora', serif; font-size: 10px; letter-spacing: 0.04em; color: #929487; opacity: 0.65; text-decoration: none; transition: opacity 0.2s;"
             onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.65'">
