@@ -11,7 +11,6 @@
     <meta property="og:title" content="Anagh &amp; Ganga — Wedding Celebration">
     <meta property="og:description"
         content="Together with their families, Dr. Anagh and Dr. Ganga invite you to celebrate their wedding. Reception: 30 November 2026.">
-    <!-- Replace this relative URL with the full HTTPS URL after deployment for reliable WhatsApp/social previews. -->
     <meta property="og:image" content="assets/couple_full.jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="assets/wedding-invitation.png">
@@ -21,6 +20,7 @@
         href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
         rel="stylesheet">
     <title>Anagh &amp; Ganga — Wedding Celebration</title>
+
     <style>
         :root {
             color-scheme: light;
@@ -210,8 +210,9 @@
             font-style: italic;
         }
 
+        /* MAIN COUPLE PHOTOGRAPH: FIXED 4:5 RATIO */
         .photo-wrap {
-            width: min(100%, 570px);
+            width: min(100%, 460px);
             margin: 42px auto 0;
             position: relative;
             padding: 12px;
@@ -244,7 +245,8 @@
 
         .photo-frame {
             position: relative;
-            min-height: 250px;
+            width: 100%;
+            aspect-ratio: 4 / 5;
             overflow: hidden;
             border: 5px solid rgba(255, 255, 255, .85);
             background: linear-gradient(135deg, #e8e8d9, #f1e8d8 55%, #e5dfcf);
@@ -252,13 +254,16 @@
         }
 
         .photo-frame img {
+            position: absolute;
+            inset: 0;
             display: block;
             width: 100%;
-            height: clamp(260px, 64vw, 480px);
+            height: 100%;
             object-fit: cover;
-            object-position: center 42%;
+            object-position: center;
         }
 
+        /* SECONDARY PHOTOGRAPH: CIRCULAR 1:1 */
         .secondary-photo {
             width: min(100%, 220px);
             margin: 34px auto 0;
@@ -266,23 +271,14 @@
         }
 
         .secondary-photo .photo-frame {
-            min-height: 0;
             aspect-ratio: 1;
             border-radius: 50%;
         }
 
         .secondary-photo .photo-frame img {
-            height: 100%;
-            aspect-ratio: 1;
+            border-radius: 50%;
             object-fit: cover;
             object-position: center;
-            border-radius: 50%;
-        }
-
-        .secondary-photo .photo-fallback {
-            min-height: 0;
-            height: 100%;
-            border-radius: 50%;
         }
 
         .secondary-caption {
@@ -292,16 +288,17 @@
         }
 
         .photo-fallback {
+            position: absolute;
+            inset: 0;
             display: none;
-            min-height: 290px;
-            height: 100%;
-            padding: 36px 24px;
             color: var(--olive);
             align-items: center;
             justify-content: center;
             flex-direction: column;
             text-align: center;
-            background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, .55), transparent 50%), linear-gradient(140deg, #e8eadf, #f5ecdc);
+            background:
+                radial-gradient(circle at 50% 40%, rgba(255, 255, 255, .55), transparent 50%),
+                linear-gradient(140deg, #e8eadf, #f5ecdc);
         }
 
         .photo-fallback .monogram {
@@ -780,10 +777,6 @@
                 padding: 9px;
             }
 
-            .photo-frame img {
-                height: clamp(245px, 78vw, 360px);
-            }
-
             .section {
                 margin-top: 60px;
             }
@@ -894,7 +887,9 @@
 
 <body>
     <a class="skip-link" href="#main">Skip to invitation</a>
+
     <div class="page-shell">
+
         <svg class="botanical top" viewBox="0 0 180 180" fill="none" aria-hidden="true">
             <path
                 d="M12 166C34 108 71 54 153 15M32 129C12 98 17 73 44 59C60 85 55 109 32 129ZM62 88C50 56 65 31 96 23C105 52 91 75 62 88ZM94 55C98 27 123 12 151 20C148 47 126 63 94 55Z"
@@ -902,6 +897,7 @@
             <path d="M32 129C38 104 43 81 44 59M62 88C73 64 84 42 96 23M94 55C115 42 133 29 151 20"
                 stroke="currentColor" stroke-width="1" />
         </svg>
+
         <svg class="botanical bottom" viewBox="0 0 180 180" fill="none" aria-hidden="true">
             <path
                 d="M12 166C34 108 71 54 153 15M32 129C12 98 17 73 44 59C60 85 55 109 32 129ZM62 88C50 56 65 31 96 23C105 52 91 75 62 88ZM94 55C98 27 123 12 151 20C148 47 126 63 94 55Z"
@@ -909,15 +905,21 @@
             <path d="M32 129C38 104 43 81 44 59M62 88C73 64 84 42 96 23M94 55C115 42 133 29 151 20"
                 stroke="currentColor" stroke-width="1" />
         </svg>
+
         <main id="main" class="page-content">
+
+            <!-- HERO -->
             <header class="hero reveal">
                 <p class="eyebrow hero-kicker">Together with their families</p>
                 <h1>Anagh <span>&amp;</span> Ganga</h1>
                 <p class="hero-subtitle">Invite you to celebrate their wedding</p>
-                <p class="hero-copy">With joy in their hearts, they request the pleasure of your company and blessings
-                    as they begin this new chapter together.</p>
+                <p class="hero-copy">
+                    With joy in their hearts, they request the pleasure of your
+                    company and blessings as they begin this new chapter together.
+                </p>
             </header>
 
+            <!-- MAIN COUPLE PHOTOGRAPH -->
             <div class="photo-wrap reveal">
                 <div class="photo-frame" id="mainPhotoFrame">
                     <img src="assets/couple_full.jpeg" alt="Anagh and Ganga" fetchpriority="high">
@@ -937,17 +939,22 @@
                 </svg>
             </div>
 
+            <!-- RECEPTION -->
             <section class="section reveal" aria-labelledby="reception-title">
                 <p class="eyebrow">The celebration</p>
                 <h2 class="section-heading" id="reception-title">Wedding Reception</h2>
-                <p class="section-intro">We would be delighted to celebrate this special evening with you.</p>
+                <p class="section-intro">
+                    We would be delighted to celebrate this special evening with you.
+                </p>
+
                 <article class="event-card">
                     <p class="event-label">Wedding reception</p>
                     <p class="event-date">30</p>
                     <p class="event-weekday">Monday · November 2026</p>
-                    <p class="event-time">3:00 PM – 9:00 PM <span aria-label="India Standard Time">· IST</span></p>
+                    <p class="event-time">3:00 PM – 9:00 PM · IST</p>
                     <p class="event-venue">Century Convention Centre</p>
                     <p class="event-address">Chelari</p>
+
                     <div class="actions">
                         <a class="button primary" href="https://maps.app.goo.gl/k3rFXvT1gthBPjAv6" target="_blank"
                             rel="noopener noreferrer" aria-label="Open reception venue in Google Maps">
@@ -958,36 +965,54 @@
                             </svg>
                             Directions
                         </a>
-                        <button class="button" type="button" data-calendar="all">
+
+                        <a class="button"
+                            href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Wedding+Reception%3A+Anagh+%26+Ganga&amp;dates=20261130T150000%2F20261130T210000&amp;ctz=Asia%2FKolkata&amp;details=Wedding+reception+of+Dr.+Anagh+K+N+and+Dr.+Ganga+P+P.&amp;location=Century+Convention+Centre%2C+Chelari"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Save the wedding reception to Google Calendar">
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor"
                                     stroke-width="1.6" />
                                 <path d="M7 3v4M17 3v4M3 10h18" stroke="currentColor" stroke-width="1.6" />
                             </svg>
-                            Save dates
-                        </button>
+                            Save the date
+                        </a>
                     </div>
                 </article>
             </section>
 
+            <!-- FAMILY DETAILS -->
             <section class="section reveal" aria-labelledby="couple-title">
                 <p class="eyebrow">The families</p>
                 <h2 class="section-heading" id="couple-title">With the blessings of</h2>
+
                 <div class="family-grid">
                     <article class="family-card">
                         <h3>DR. ANAGH K N</h3>
-                        <p>S/o. Krishnankutty K N (Late) &amp; Sheeba M M<br>“VARADHA”<br>Nechinathil,
-                            Chenakkalangadi<br>Thenhippalam</p>
-                        <a class="family-contact" href="tel:+919446309279">+91 94463 09279</a>
+                        <p>
+                            S/o. Krishnankutty K N (Late) &amp; Sheeba M M<br>
+                            “VARADHA”<br>
+                            Nechinathil, Chenakkalangadi<br>
+                            Thenhippalam
+                        </p>
+                        <a class="family-contact" href="tel:+919446309279">
+                            +91 94463 09279
+                        </a>
                     </article>
+
                     <article class="family-card">
                         <h3>DR. GANGA P P</h3>
-                        <p>D/o. Raghuthaman P P &amp; Sreeja P V<br>Puthiya Purayil<br>Chooliyad, Malappattam<br>Kannur
+                        <p>
+                            D/o. Raghuthaman P P &amp; Sreeja P V<br>
+                            Puthiya Purayil<br>
+                            Chooliyad, Malappattam<br>
+                            Kannur
                         </p>
                     </article>
                 </div>
             </section>
 
+            <!-- SECONDARY COUPLE PHOTOGRAPH -->
             <div class="secondary-photo reveal">
                 <div class="photo-frame" id="secondaryPhotoFrame">
                     <img src="assets/selfie_couple.jpeg" alt="A closer photograph of Anagh and Ganga" loading="lazy">
@@ -999,31 +1024,55 @@
                 <p class="secondary-caption">A little moment, a lifetime ahead.</p>
             </div>
 
+            <!-- COUNTDOWN -->
             <section class="section reveal" aria-labelledby="countdown-title">
                 <p class="eyebrow">The day is getting closer</p>
-                <h2 class="section-heading" id="countdown-title">Counting down to the celebration</h2>
+                <h2 class="section-heading" id="countdown-title">
+                    Counting down to the celebration
+                </h2>
+
                 <div class="countdown" role="timer" aria-live="off" aria-label="Countdown to the wedding reception">
-                    <div class="count-box"><span class="count-number" id="days">—</span><span
-                            class="count-label">Days</span></div>
-                    <div class="count-box"><span class="count-number" id="hours">—</span><span
-                            class="count-label">Hours</span></div>
-                    <div class="count-box"><span class="count-number" id="minutes">—</span><span
-                            class="count-label">Minutes</span></div>
-                    <div class="count-box"><span class="count-number" id="seconds">—</span><span
-                            class="count-label">Seconds</span></div>
+                    <div class="count-box">
+                        <span class="count-number" id="days">—</span>
+                        <span class="count-label">Days</span>
+                    </div>
+                    <div class="count-box">
+                        <span class="count-number" id="hours">—</span>
+                        <span class="count-label">Hours</span>
+                    </div>
+                    <div class="count-box">
+                        <span class="count-number" id="minutes">—</span>
+                        <span class="count-label">Minutes</span>
+                    </div>
+                    <div class="count-box">
+                        <span class="count-number" id="seconds">—</span>
+                        <span class="count-label">Seconds</span>
+                    </div>
                 </div>
-                <p class="count-note" id="countdown-note">Until Monday, 30 November 2026 · 3:00 PM IST</p>
+
+                <p class="count-note" id="countdown-note">
+                    Until Monday, 30 November 2026 · 3:00 PM IST
+                </p>
             </section>
 
+            <!-- WEDDING CEREMONY -->
             <section class="section reveal" aria-labelledby="ceremony-title">
                 <p class="eyebrow">The wedding ceremony</p>
-                <h2 class="section-heading" id="ceremony-title">The marriage will be solemnised</h2>
+                <h2 class="section-heading" id="ceremony-title">
+                    The marriage will be solemnised
+                </h2>
+
                 <article class="ceremony-card">
                     <p class="ceremony-date">29 November 2026</p>
                     <p class="event-weekday">Sunday</p>
-                    <p class="ceremony-time">Muhurtham · 10:00 AM – 10:45 AM IST</p>
+                    <p class="ceremony-time">
+                        Muhurtham · 10:00 AM – 10:45 AM IST
+                    </p>
                     <p class="ceremony-venue">Kadeeja’s Auditorium</p>
-                    <p class="ceremony-address">Kuttavu Road, Irikkur, Kannur</p>
+                    <p class="ceremony-address">
+                        Kuttavu Road, Irikkur, Kannur
+                    </p>
+
                     <div class="actions">
                         <a class="button" href="https://maps.app.goo.gl/5M7kdzWSkgNTnqC7A" target="_blank"
                             rel="noopener noreferrer" aria-label="Open wedding ceremony venue in Google Maps">
@@ -1034,34 +1083,57 @@
                             </svg>
                             Ceremony directions
                         </a>
-                        <button class="button" type="button" data-calendar="ceremony">Add ceremony</button>
+
+                        <a class="button"
+                            href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Wedding+Ceremony%3A+Anagh+%26+Ganga&amp;dates=20261129T100000%2F20261129T104500&amp;ctz=Asia%2FKolkata&amp;details=Wedding+ceremony+and+muhurtham+of+Dr.+Anagh+K+N+and+Dr.+Ganga+P+P.&amp;location=Kadeeja%27s+Auditorium%2C+Kuttavu+Road%2C+Irikkur%2C+Kannur"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Save the wedding ceremony to Google Calendar">
+                            Save the date
+                        </a>
                     </div>
                 </article>
             </section>
 
+            <!-- CALENDAR -->
             <section class="section calendar-section reveal" aria-labelledby="calendar-title">
                 <p class="eyebrow">Keep these days close</p>
                 <h2 class="section-heading" id="calendar-title">November 2026</h2>
+
                 <div class="calendar"
                     aria-label="November 2026 calendar, with 29 November marked for the ceremony and 30 November marked for the reception">
                     <p class="calendar-title">NOVEMBER · 2026</p>
+
                     <div class="calendar-grid" aria-hidden="true">
-                        <span class="day-name">SUN</span><span class="day-name">MON</span><span
-                            class="day-name">TUE</span><span class="day-name">WED</span><span
-                            class="day-name">THU</span><span class="day-name">FRI</span><span
-                            class="day-name">SAT</span>
+                        <span class="day-name">SUN</span>
+                        <span class="day-name">MON</span>
+                        <span class="day-name">TUE</span>
+                        <span class="day-name">WED</span>
+                        <span class="day-name">THU</span>
+                        <span class="day-name">FRI</span>
+                        <span class="day-name">SAT</span>
+
                         <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
                         <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
                         <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
                         <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
-                        <span class="ceremony-day" title="Wedding ceremony">29</span><span class="reception-day"
-                            title="Wedding reception">30</span><span></span><span></span><span></span><span></span><span></span>
+
+                        <span class="ceremony-day" title="Wedding ceremony">29</span>
+                        <span class="reception-day" title="Wedding reception">30</span>
+                        <span></span><span></span><span></span><span></span><span></span>
                     </div>
-                    <div class="calendar-key"><span class="key-item"><i class="key-dot"></i> Ceremony</span><span
-                            class="key-item"><i class="key-dot reception"></i> Reception</span></div>
+
+                    <div class="calendar-key">
+                        <span class="key-item">
+                            <i class="key-dot"></i> Ceremony
+                        </span>
+                        <span class="key-item">
+                            <i class="key-dot reception"></i> Reception
+                        </span>
+                    </div>
                 </div>
             </section>
 
+            <!-- CLOSING -->
             <footer class="closing reveal">
                 <div class="ornament" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none">
@@ -1070,9 +1142,14 @@
                             stroke="currentColor" stroke-width="1.3" />
                     </svg>
                 </div>
-                <p class="closing-copy">Your presence and blessings will make our celebration even more special. We look
-                    forward to celebrating with you.</p>
+
+                <p class="closing-copy">
+                    Your presence and blessings will make our celebration even more
+                    special. We look forward to celebrating with you.
+                </p>
+
                 <p class="closing-names">With love, Anagh &amp; Ganga</p>
+
                 <div class="actions">
                     <button class="button primary" id="shareButton" type="button">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1083,20 +1160,26 @@
                         </svg>
                         Share invitation
                     </button>
+
                     <a class="button" id="whatsappLink"
                         href="https://wa.me/?text=You%27re%20invited%20to%20celebrate%20the%20wedding%20of%20Anagh%20%26%20Ganga%20on%2030%20November%202026."
-                        target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
+                        target="_blank" rel="noopener noreferrer">
+                        Share on WhatsApp
+                    </a>
                 </div>
+
                 <p class="footer-note">With joy · November 2026</p>
             </footer>
+
         </main>
     </div>
 
     <script>
         document.documentElement.classList.add('js');
 
-        // Keep the countdown anchored to the event's stated India Standard Time.
+        // Countdown to the reception in India Standard Time.
         const receptionAt = new Date('2026-11-30T15:00:00+05:30');
+
         const countdownEls = {
             days: document.getElementById('days'),
             hours: document.getElementById('hours'),
@@ -1104,25 +1187,45 @@
             seconds: document.getElementById('seconds'),
             note: document.getElementById('countdown-note')
         };
+
         function updateCountdown() {
             const remaining = receptionAt.getTime() - Date.now();
+
             if (remaining <= 0) {
-                Object.values(countdownEls).slice(0, 4).forEach(el => { el.textContent = '0'; });
-                countdownEls.note.textContent = 'The celebration day has arrived. We look forward to seeing you!';
+                countdownEls.days.textContent = '0';
+                countdownEls.hours.textContent = '0';
+                countdownEls.minutes.textContent = '0';
+                countdownEls.seconds.textContent = '0';
+                countdownEls.note.textContent =
+                    'The celebration day has arrived. We look forward to seeing you!';
                 return;
             }
+
             const totalSeconds = Math.floor(remaining / 1000);
-            countdownEls.days.textContent = Math.floor(totalSeconds / 86400);
-            countdownEls.hours.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, '0');
-            countdownEls.minutes.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
-            countdownEls.seconds.textContent = String(totalSeconds % 60).padStart(2, '0');
+
+            countdownEls.days.textContent =
+                Math.floor(totalSeconds / 86400);
+
+            countdownEls.hours.textContent =
+                String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, '0');
+
+            countdownEls.minutes.textContent =
+                String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+
+            countdownEls.seconds.textContent =
+                String(totalSeconds % 60).padStart(2, '0');
         }
+
         updateCountdown();
         window.setInterval(updateCountdown, 1000);
 
-        // Reveal animation is progressive enhancement; content stays visible without JS.
+        // Scroll reveal animations.
         const revealItems = document.querySelectorAll('.reveal');
-        if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+        if (
+            'IntersectionObserver' in window &&
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ) {
             const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1130,76 +1233,55 @@
                         obs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -35px 0px'
+            });
+
             revealItems.forEach(item => observer.observe(item));
         } else {
             revealItems.forEach(item => item.classList.add('is-visible'));
         }
 
-        // Show an intentional, styled fallback instead of a broken-image icon when assets are absent.
+        // Graceful image fallback if an asset is missing.
         document.querySelectorAll('.photo-frame img').forEach(img => {
-            const showFallback = () => img.closest('.photo-frame').classList.add('image-missing');
+            const showFallback = () => {
+                img.closest('.photo-frame').classList.add('image-missing');
+            };
+
             img.addEventListener('error', showFallback, { once: true });
-            // A cached/failed image can finish before this listener is attached (notably on fast loads).
-            if (img.complete && img.naturalWidth === 0) showFallback();
-        });
 
-        // Calendar download contains both events; the ceremony button downloads only the ceremony.
-        const events = {
-            ceremony: {
-                uid: 'anagh-ganga-ceremony-20261129',
-                title: 'Wedding Ceremony — Anagh & Ganga',
-                start: '20261129T043000Z', end: '20261129T051500Z',
-                location: 'Kadeeja’s Auditorium, Kuttavu Road, Irikkur, Kannur',
-                description: 'Wedding ceremony and muhurtham of Dr. Anagh K N and Dr. Ganga P P. 10:00 AM–10:45 AM IST.'
-            },
-            reception: {
-                uid: 'anagh-ganga-reception-20261130',
-                title: 'Wedding Reception — Anagh & Ganga',
-                start: '20261130T093000Z', end: '20261130T153000Z',
-                location: 'Century Convention Centre, Chelari',
-                description: 'Wedding reception of Dr. Anagh K N and Dr. Ganga P P. 3:00 PM–9:00 PM IST.'
+            if (img.complete && img.naturalWidth === 0) {
+                showFallback();
             }
-        };
-        const icsEscape = value => String(value).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
-        function downloadCalendar(which) {
-            const selected = which === 'ceremony' ? [events.ceremony] : [events.ceremony, events.reception];
-            const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-            const lines = [
-                'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Anagh and Ganga//Wedding Invitation//EN',
-                'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'
-            ];
-            selected.forEach(event => {
-                lines.push(
-                    'BEGIN:VEVENT', `UID:${event.uid}@anagh-ganga-invite`, `DTSTAMP:${stamp}`,
-                    `DTSTART:${event.start}`, `DTEND:${event.end}`, `SUMMARY:${icsEscape(event.title)}`,
-                    `LOCATION:${icsEscape(event.location)}`, `DESCRIPTION:${icsEscape(event.description)}`,
-                    'END:VEVENT'
-                );
-            });
-            lines.push('END:VCALENDAR');
-            const blob = new Blob([lines.join('\r\n') + '\r\n'], { type: 'text/calendar;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const anchor = document.createElement('a');
-            anchor.href = url;
-            anchor.download = which === 'ceremony' ? 'anagh-ganga-wedding-ceremony.ics' : 'anagh-ganga-wedding-dates.ics';
-            document.body.appendChild(anchor);
-            anchor.click();
-            anchor.remove();
-            window.setTimeout(() => URL.revokeObjectURL(url), 1500);
-        }
-        document.querySelectorAll('[data-calendar]').forEach(button => {
-            button.addEventListener('click', () => downloadCalendar(button.dataset.calendar));
         });
 
-        const shareText = 'You’re invited to celebrate the wedding of Dr. Anagh K N and Dr. Ganga P P. Wedding ceremony: 29 November 2026, 10:00–10:45 AM at Kadeeja’s Auditorium, Irikkur. Reception: 30 November 2026, 3:00–9:00 PM at Century Convention Centre, Chelari.';
+        // Share invitation.
+        const shareText =
+            'You’re invited to celebrate the wedding of Dr. Anagh K N and Dr. Ganga P P. ' +
+            'Wedding ceremony: 29 November 2026, 10:00–10:45 AM at Kadeeja’s Auditorium, Irikkur. ' +
+            'Reception: 30 November 2026, 3:00–9:00 PM at Century Convention Centre, Chelari.';
+
         const pageUrl = window.location.href;
-        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText} ${pageUrl}`)}`;
+
+        const whatsappUrl =
+            `https://wa.me/?text=${encodeURIComponent(`${shareText} ${pageUrl}`)}`;
+
         document.getElementById('whatsappLink').href = whatsappUrl;
+
         document.getElementById('shareButton').addEventListener('click', async () => {
             if (navigator.share) {
-                try { await navigator.share({ title: 'Anagh & Ganga — Wedding Invitation', text: shareText, url: pageUrl }); }
-                catch (error) { if (error.name !== 'AbortError') window.open(whatsappUrl, '_blank', 'noopener,noreferrer'); }
+                try {
+                    await navigator.share({
+                        title: 'Anagh & Ganga — Wedding Invitation',
+                        text: shareText,
+                        url: pageUrl
+                    });
+                } catch (error) {
+                    if (error.name !== 'AbortError') {
+                        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+                    }
+                }
             } else {
                 window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
             }
