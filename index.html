@@ -861,25 +861,72 @@
         }
 
         @media print {
+            @page {
+                size: A4;
+                margin: 12mm;
+            }
+
+            html,
             body {
-                background: white;
+                background: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             .page-shell {
                 width: 100%;
+                max-width: none;
                 margin: 0;
                 box-shadow: none;
+                overflow: visible;
+                border: none;
             }
 
-            .actions,
-            .countdown,
-            .footer-note {
+            .page-content {
+                padding: 12mm 8mm;
+            }
+
+            /* Make sure scroll animations don't hide content */
+            .js .reveal,
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+
+            /* Preserve clickable Maps and Calendar links */
+            .actions {
+                display: flex !important;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .actions .button {
+                display: inline-flex !important;
+                color: var(--olive-deep) !important;
+                background: white !important;
+                border: 1px solid var(--olive) !important;
+                text-decoration: none !important;
+                font-size: 8pt;
+                min-height: auto;
+                padding: 7px 11px;
+            }
+
+            /* Native share button cannot work inside a PDF */
+            #shareButton {
                 display: none !important;
             }
 
-            .js .reveal {
-                opacity: 1;
-                transform: none;
+            /* Prevent important sections from splitting across pages */
+            .photo-wrap,
+            .secondary-photo,
+            .event-card,
+            .ceremony-card,
+            .family-card,
+            .calendar {
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
         }
     </style>
