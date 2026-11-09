@@ -1,392 +1,1215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" type="image/png" href="./assets/wedding-invitation.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anagh & Ganga - Wedding Reception</title>
-    
-    <!-- Google Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f3eb">
+    <meta name="description"
+        content="Join us in celebrating the wedding of Dr. Anagh K N and Dr. Ganga P P. Reception on Monday, 30 November 2026 at Century Convention Centre, Chelari.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Anagh &amp; Ganga — Wedding Celebration">
+    <meta property="og:description"
+        content="Together with their families, Dr. Anagh and Dr. Ganga invite you to celebrate their wedding. Reception: 30 November 2026.">
+    <!-- Replace this relative URL with the full HTTPS URL after deployment for reliable WhatsApp/social previews. -->
+    <meta property="og:image" content="assets/couple_full.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="assets/wedding-invitation.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+SC:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'invite-bg': '#fdfbf7',
-                        'olive': '#4a5d3f', // Darker, richer olive
-                        'gold': '#c5a059',  // Gold for accents
-                        'charcoal': '#2c302c',
-                        'highlight': '#d99a8b',
-                        'leaf-green': '#7b8f64'
-                    },
-                    fontFamily: {
-                        'script': ['"Alex Brush"', 'cursive'],
-                        'body': ['"Lora"', 'serif'],
-                        'heading': ['"Cinzel"', 'serif'],
-                        'thin-caps': ['"Cormorant SC"', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <title>Anagh &amp; Ganga — Wedding Celebration</title>
     <style>
-        /* Watercolor background simulation & Paper Texture */
+        :root {
+            color-scheme: light;
+            --paper: #f8f6ef;
+            --paper-deep: #f0ede2;
+            --ink: #30372e;
+            --ink-soft: #60675b;
+            --olive: #4b6044;
+            --olive-deep: #344a39;
+            --sage: #839276;
+            --gold: #b89a61;
+            --gold-text: #8a6b3c;
+            --gold-light: #d9c99f;
+            --rose: #98645d;
+            --line: rgba(184, 154, 97, .45);
+            --white: rgba(255, 255, 255, .72);
+            --shadow: 0 24px 70px rgba(48, 55, 46, .10);
+            --serif: "Cormorant Garamond", Georgia, serif;
+            --body: "Lora", Georgia, serif;
+            --formal: "Cinzel", Georgia, serif;
+            --script: "Alex Brush", cursive;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 24px;
+        }
+
         body {
-            background-color: #fdfbf7;
-            position: relative;
-            overflow-x: hidden;
-            color: #2c302c;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            margin: 0;
+            min-width: 320px;
+            color: var(--ink);
+            background:
+                radial-gradient(ellipse at 5% 8%, rgba(208, 220, 196, .50), transparent 30rem),
+                radial-gradient(ellipse at 95% 55%, rgba(235, 224, 202, .58), transparent 34rem),
+                radial-gradient(ellipse at 14% 94%, rgba(217, 224, 205, .42), transparent 28rem),
+                var(--paper);
+            font-family: var(--body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
-        /* Ambient blurred blobs with slow floating animation */
-        .watercolor-blob {
+        body::before {
+            content: "";
             position: fixed;
-            border-radius: 50%;
-            filter: blur(90px);
+            inset: 0;
             z-index: -1;
-            opacity: 0.75;
-            animation: float 12s ease-in-out infinite alternate;
-        }
-        .blob-1 { top: -5%; left: -10%; width: 50vw; height: 50vw; background: #dce3d0; animation-delay: 0s; }
-        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: #f2eadc; animation-delay: -6s; }
-        .blob-3 { top: 35%; left: 20%; width: 45vw; height: 45vw; background: #e3e6d8; animation-delay: -3s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(25px, 20px) scale(1.05); }
+            pointer-events: none;
+            opacity: .14;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
         }
 
-        /* Scroll Animation Classes */
+        a {
+            color: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--rose);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 100;
+            transform: translateY(-160%);
+            padding: 10px 14px;
+            background: var(--olive-deep);
+            color: white;
+            border-radius: 8px;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .page-shell {
+            width: min(100% - 32px, 820px);
+            margin: 28px auto;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            background: rgba(255, 254, 249, .78);
+            border: 1px solid rgba(184, 154, 97, .35);
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+        }
+
+        .page-shell::before,
+        .page-shell::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+            z-index: 4;
+            inset: 13px;
+            border: 1px solid rgba(184, 154, 97, .36);
+        }
+
+        .page-shell::after {
+            inset: 19px;
+            border-color: rgba(75, 96, 68, .13);
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 2;
+            padding: 72px clamp(22px, 6vw, 68px) 42px;
+        }
+
+        .botanical {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            color: var(--sage);
+            width: clamp(120px, 24vw, 220px);
+            opacity: .34;
+        }
+
+        .botanical.top {
+            top: 10px;
+            left: -25px;
+            transform: rotate(-8deg);
+        }
+
+        .botanical.bottom {
+            right: clamp(16px, 5vw, 40px);
+            bottom: 8px;
+            transform: rotate(172deg);
+        }
+
+        .eyebrow {
+            margin: 0;
+            color: var(--gold-text);
+            font: 500 .69rem/1.5 var(--formal);
+            letter-spacing: .24em;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 32px 4px 0;
+        }
+
+        .hero-kicker {
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            color: var(--olive);
+            font: 400 clamp(4rem, 12vw, 7rem)/.92 var(--script);
+            letter-spacing: -.015em;
+        }
+
+        .hero h1 span {
+            color: var(--gold-text);
+            font-size: .75em;
+        }
+
+        .hero-subtitle {
+            margin: 16px 0 0;
+            color: var(--ink-soft);
+            font: 500 .76rem/1.7 var(--formal);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .hero-copy {
+            max-width: 480px;
+            margin: 22px auto 0;
+            color: var(--ink-soft);
+            font-size: .96rem;
+            font-style: italic;
+        }
+
+        .photo-wrap {
+            width: min(100%, 570px);
+            margin: 42px auto 0;
+            position: relative;
+            padding: 12px;
+        }
+
+        .photo-wrap::before,
+        .photo-wrap::after {
+            content: "";
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            z-index: 2;
+            pointer-events: none;
+            border-color: var(--gold);
+            border-style: solid;
+            opacity: .8;
+        }
+
+        .photo-wrap::before {
+            top: 0;
+            left: 0;
+            border-width: 1px 0 0 1px;
+        }
+
+        .photo-wrap::after {
+            bottom: 0;
+            right: 0;
+            border-width: 0 1px 1px 0;
+        }
+
+        .photo-frame {
+            position: relative;
+            min-height: 250px;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, .85);
+            background: linear-gradient(135deg, #e8e8d9, #f1e8d8 55%, #e5dfcf);
+            box-shadow: 0 16px 42px rgba(52, 74, 57, .13);
+        }
+
+        .photo-frame img {
+            display: block;
+            width: 100%;
+            height: clamp(260px, 64vw, 480px);
+            object-fit: cover;
+            object-position: center 42%;
+        }
+
+        .secondary-photo {
+            width: min(100%, 220px);
+            margin: 34px auto 0;
+            text-align: center;
+        }
+
+        .secondary-photo .photo-frame {
+            min-height: 0;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+
+        .secondary-photo .photo-frame img {
+            height: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+
+        .secondary-photo .photo-fallback {
+            min-height: 0;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .secondary-caption {
+            margin: 14px 0 0;
+            color: var(--ink-soft);
+            font: italic .82rem/1.6 var(--body);
+        }
+
+        .photo-fallback {
+            display: none;
+            min-height: 290px;
+            height: 100%;
+            padding: 36px 24px;
+            color: var(--olive);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, .55), transparent 50%), linear-gradient(140deg, #e8eadf, #f5ecdc);
+        }
+
+        .photo-fallback .monogram {
+            font: 400 5rem/.9 var(--script);
+        }
+
+        .photo-fallback small {
+            margin-top: 18px;
+            font: 500 .62rem/1.7 var(--formal);
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .photo-frame.image-missing img {
+            display: none;
+        }
+
+        .photo-frame.image-missing .photo-fallback {
+            display: flex;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 17px;
+            margin: 34px auto;
+            color: var(--gold);
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: "";
+            width: 76px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+
+        .ornament::after {
+            transform: scaleX(-1);
+        }
+
+        .ornament svg {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+        }
+
+        .section {
+            margin: 72px auto 0;
+            text-align: center;
+        }
+
+        .section-heading {
+            margin: 0;
+            color: var(--olive);
+            font: 500 clamp(1.5rem, 4vw, 2rem)/1.2 var(--serif);
+        }
+
+        .section-intro {
+            margin: 11px auto 0;
+            max-width: 520px;
+            color: var(--ink-soft);
+            font-size: .9rem;
+        }
+
+        .event-card {
+            margin: 24px auto 0;
+            padding: clamp(24px, 5vw, 38px);
+            max-width: 590px;
+            background: rgba(255, 255, 255, .64);
+            border: 1px solid var(--line);
+            box-shadow: 0 12px 36px rgba(48, 55, 46, .055);
+            position: relative;
+        }
+
+        .event-card::before {
+            content: "";
+            position: absolute;
+            inset: 7px;
+            border: 1px solid rgba(184, 154, 97, .19);
+            pointer-events: none;
+        }
+
+        .event-label {
+            position: relative;
+            margin: 0;
+            color: var(--rose);
+            font: 500 .65rem/1.6 var(--formal);
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        .event-date {
+            position: relative;
+            margin: 7px 0 0;
+            color: var(--olive);
+            font: 500 clamp(3.5rem, 10vw, 5rem)/.98 var(--serif);
+        }
+
+        .event-weekday {
+            position: relative;
+            margin: 8px 0 0;
+            color: var(--ink-soft);
+            font: 500 .74rem/1.5 var(--formal);
+            letter-spacing: .17em;
+            text-transform: uppercase;
+        }
+
+        .event-time {
+            position: relative;
+            margin: 19px 0 0;
+            color: var(--ink);
+            font: 500 1.02rem/1.5 var(--body);
+        }
+
+        .event-venue {
+            position: relative;
+            margin: 22px auto 0;
+            max-width: 430px;
+            color: var(--olive-deep);
+            font: 600 1.03rem/1.6 var(--formal);
+            letter-spacing: .055em;
+        }
+
+        .event-address {
+            position: relative;
+            margin: 7px 0 0;
+            color: var(--ink-soft);
+            font-size: .84rem;
+        }
+
+        .actions {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            min-height: 46px;
+            padding: 11px 17px;
+            border: 1px solid var(--olive);
+            border-radius: 999px;
+            color: var(--olive-deep);
+            background: rgba(255, 255, 255, .72);
+            text-decoration: none;
+            font: 500 .66rem/1.2 var(--formal);
+            letter-spacing: .11em;
+            text-transform: uppercase;
+            transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: var(--olive);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 74, 57, .13);
+        }
+
+        .button.primary {
+            color: white;
+            background: var(--olive);
+        }
+
+        .button.primary:hover {
+            background: var(--olive-deep);
+        }
+
+        .button svg {
+            width: 15px;
+            height: 15px;
+            flex: 0 0 auto;
+        }
+
+        .family-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            max-width: 590px;
+            margin: 26px auto 0;
+        }
+
+        .family-card {
+            padding: 21px 16px;
+            background: rgba(255, 255, 255, .38);
+            border-top: 1px solid var(--line);
+        }
+
+        .family-card h3 {
+            margin: 0 0 9px;
+            color: var(--olive);
+            font: 500 .79rem/1.5 var(--formal);
+            letter-spacing: .1em;
+        }
+
+        .family-card p {
+            margin: 0;
+            color: var(--ink-soft);
+            font-size: .78rem;
+            line-height: 1.85;
+        }
+
+        .family-contact {
+            display: inline-block;
+            margin-top: 5px;
+            color: var(--olive-deep);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+            max-width: 420px;
+            margin: 25px auto 0;
+        }
+
+        .count-box {
+            padding: 15px 8px 12px;
+            border: 1px solid rgba(184, 154, 97, .32);
+            background: rgba(255, 255, 255, .42);
+        }
+
+        .count-number {
+            display: block;
+            color: var(--olive);
+            font: 500 clamp(1.65rem, 5vw, 2.3rem)/1 var(--serif);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .count-label {
+            display: block;
+            margin-top: 7px;
+            color: var(--ink-soft);
+            font: 500 .55rem/1.4 var(--formal);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .count-note {
+            min-height: 1.4em;
+            margin: 12px 0 0;
+            color: var(--ink-soft);
+            font-size: .78rem;
+            font-style: italic;
+        }
+
+        .ceremony-card {
+            margin-top: 24px;
+            padding: 27px clamp(20px, 5vw, 34px);
+            border: 1px solid rgba(75, 96, 68, .2);
+            background: rgba(231, 235, 223, .35);
+        }
+
+        .ceremony-date {
+            margin: 8px 0 0;
+            color: var(--olive);
+            font: 500 2.5rem/1 var(--serif);
+        }
+
+        .ceremony-time {
+            margin: 12px 0 0;
+            color: var(--ink);
+            font-size: .94rem;
+        }
+
+        .ceremony-venue {
+            margin: 17px 0 0;
+            color: var(--olive-deep);
+            font: 600 .93rem/1.65 var(--formal);
+            letter-spacing: .035em;
+        }
+
+        .ceremony-address {
+            margin: 5px 0 0;
+            color: var(--ink-soft);
+            font-size: .82rem;
+        }
+
+        .calendar-section {
+            margin-top: 72px;
+        }
+
+        .calendar {
+            width: min(100%, 330px);
+            margin: 24px auto 0;
+            padding: 23px 22px 20px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .55);
+            box-shadow: 0 10px 28px rgba(48, 55, 46, .045);
+        }
+
+        .calendar-title {
+            margin: 0 0 17px;
+            color: var(--olive);
+            font: 500 .82rem/1.5 var(--formal);
+            letter-spacing: .17em;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px 3px;
+        }
+
+        .calendar-grid span {
+            display: grid;
+            place-items: center;
+            min-height: 32px;
+            color: var(--ink-soft);
+            font: 500 .76rem/1 var(--body);
+        }
+
+        .calendar-grid .day-name {
+            color: var(--rose);
+            font: 600 .61rem/1 var(--formal);
+        }
+
+        .calendar-grid .ceremony-day,
+        .calendar-grid .reception-day {
+            color: white;
+            position: relative;
+            z-index: 0;
+            font-weight: 600;
+        }
+
+        .calendar-grid .ceremony-day::before,
+        .calendar-grid .reception-day::before {
+            content: "";
+            position: absolute;
+            width: 29px;
+            height: 29px;
+            border-radius: 50%;
+            z-index: -1;
+            background: var(--sage);
+        }
+
+        .calendar-grid .reception-day::before {
+            background: var(--olive);
+        }
+
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 17px;
+            margin-top: 15px;
+            color: var(--ink-soft);
+            font-size: .7rem;
+        }
+
+        .key-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .key-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--sage);
+        }
+
+        .key-dot.reception {
+            background: var(--olive);
+        }
+
+        .closing {
+            max-width: 490px;
+            margin: 76px auto 0;
+            padding-bottom: 28px;
+            text-align: center;
+        }
+
+        .closing-copy {
+            margin: 0;
+            color: var(--ink-soft);
+            font: italic 1.02rem/1.9 var(--body);
+        }
+
+        .closing-names {
+            margin: 13px 0 0;
+            color: var(--olive);
+            font: 400 2.8rem/1.1 var(--script);
+        }
+
+        .footer-note {
+            margin: 30px 0 0;
+            color: var(--ink-soft);
+            font: 500 .62rem/1.6 var(--formal);
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+
         .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: none;
         }
-        .reveal.active {
+
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .65s ease, transform .65s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .js .reveal.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Elegant Frame Borders for Calendar */
-        .ornate-border {
-            border: 1px solid rgba(197, 160, 89, 0.4);
-            box-shadow: inset 0 0 0 4px #fdfbf7, inset 0 0 0 5px rgba(197, 160, 89, 0.2);
+        @media (min-width: 760px) {
+            .page-shell {
+                margin: 42px auto;
+            }
+
+            .page-content {
+                padding-top: 78px;
+            }
+
+            .hero {
+                padding-top: 38px;
+            }
+
+            .section {
+                margin-top: 86px;
+            }
         }
 
-        /* Decorative Leaf positioning */
-        .deco-leaf {
-            position: absolute;
-            z-index: 0;
-            opacity: 0.85;
-            pointer-events: none;
-        }
-        .leaf-tl { top: -10px; left: -10px; transform: rotate(10deg) scale(0.9); }
-        .leaf-br { bottom: -10px; right: -10px; transform: rotate(190deg) scale(0.9); }
-        
-        /* Calendar Highlight (Heart) */
-        .cal-highlight {
-            position: relative;
-            z-index: 1;
-        }
-        .cal-highlight::before {
-            content: '♥';
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 32px;
-            color: rgba(217, 154, 139, 0.25); /* Soft highlight color behind text */
-            z-index: -1;
+        @media (max-width: 520px) {
+            .page-shell {
+                width: calc(100% - 16px);
+                margin: 8px auto;
+            }
+
+            .page-shell::before {
+                inset: 9px;
+            }
+
+            .page-shell::after {
+                inset: 14px;
+            }
+
+            .page-content {
+                padding: 55px 22px 30px;
+            }
+
+            .hero {
+                padding-top: 32px;
+            }
+
+            .hero h1 {
+                font-size: clamp(3.65rem, 17vw, 5rem);
+            }
+
+            .hero-subtitle {
+                font-size: .63rem;
+                letter-spacing: .13em;
+            }
+
+            .hero-copy {
+                font-size: .87rem;
+            }
+
+            .photo-wrap {
+                margin-top: 30px;
+                padding: 9px;
+            }
+
+            .photo-frame img {
+                height: clamp(245px, 78vw, 360px);
+            }
+
+            .section {
+                margin-top: 60px;
+            }
+
+            .family-grid {
+                gap: 9px;
+            }
+
+            .family-card {
+                padding: 17px 9px;
+            }
+
+            .family-card p {
+                font-size: .72rem;
+            }
+
+            .actions {
+                gap: 8px;
+            }
+
+            .button {
+                min-height: 44px;
+                padding: 10px 13px;
+                font-size: .59rem;
+                letter-spacing: .08em;
+            }
+
+            .countdown {
+                gap: 6px;
+            }
+
+            .count-box {
+                padding: 13px 4px 10px;
+            }
+
+            .count-label {
+                font-size: .48rem;
+                letter-spacing: .08em;
+            }
+
+            .calendar-section {
+                margin-top: 60px;
+            }
+
+            .closing {
+                margin-top: 60px;
+            }
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #fcfaf6; }
-        ::-webkit-scrollbar-thumb { background: #c5a059; border-radius: 3px; }
+        @media (max-width: 360px) {
+            .page-content {
+                padding-right: 19px;
+                padding-left: 19px;
+            }
+
+            .family-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .family-card p {
+                font-size: .78rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .js .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page-shell {
+                width: 100%;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .actions,
+            .countdown,
+            .footer-note {
+                display: none !important;
+            }
+
+            .js .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-gold selection:text-white">
 
-    <!-- Watercolor Background Elements -->
-    <div class="watercolor-blob blob-1"></div>
-    <div class="watercolor-blob blob-2"></div>
-    <div class="watercolor-blob blob-3"></div>
-
-    <!-- Main Container (Premium elegant view) -->
-    <div class="max-w-md mx-auto min-h-screen relative bg-white/50 backdrop-blur-[4px] shadow-[0_20px_50px_rgba(74,93,63,0.15)] overflow-hidden">
-        
-        <!-- Ornate Inner Frame lines -->
-        <div class="absolute inset-3 border-[1px] border-gold/40 rounded-2xl pointer-events-none z-50 mix-blend-multiply"></div>
-        <div class="absolute inset-[18px] border border-olive/15 rounded-xl pointer-events-none z-50"></div>
-
-        <!-- Corner Leaves SVG (Gold & Green mix) -->
-        <svg class="deco-leaf leaf-tl w-56 h-56 text-olive" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M10,90 Q10,10 90,10 Q60,40 10,90 Z" opacity="0.7"/>
-            <path d="M20,95 Q0,30 80,0 Q60,50 20,95 Z" opacity="0.4" class="text-gold"/>
-            <path d="M5,85 Q5,20 70,5 Q50,30 5,85 Z" opacity="0.2" class="text-leaf-green"/>
+<body>
+    <a class="skip-link" href="#main">Skip to invitation</a>
+    <div class="page-shell">
+        <svg class="botanical top" viewBox="0 0 180 180" fill="none" aria-hidden="true">
+            <path
+                d="M12 166C34 108 71 54 153 15M32 129C12 98 17 73 44 59C60 85 55 109 32 129ZM62 88C50 56 65 31 96 23C105 52 91 75 62 88ZM94 55C98 27 123 12 151 20C148 47 126 63 94 55Z"
+                stroke="currentColor" stroke-width="1.4" />
+            <path d="M32 129C38 104 43 81 44 59M62 88C73 64 84 42 96 23M94 55C115 42 133 29 151 20"
+                stroke="currentColor" stroke-width="1" />
         </svg>
+        <svg class="botanical bottom" viewBox="0 0 180 180" fill="none" aria-hidden="true">
+            <path
+                d="M12 166C34 108 71 54 153 15M32 129C12 98 17 73 44 59C60 85 55 109 32 129ZM62 88C50 56 65 31 96 23C105 52 91 75 62 88ZM94 55C98 27 123 12 151 20C148 47 126 63 94 55Z"
+                stroke="currentColor" stroke-width="1.4" />
+            <path d="M32 129C38 104 43 81 44 59M62 88C73 64 84 42 96 23M94 55C115 42 133 29 151 20"
+                stroke="currentColor" stroke-width="1" />
+        </svg>
+        <main id="main" class="page-content">
+            <header class="hero reveal">
+                <p class="eyebrow hero-kicker">Together with their families</p>
+                <h1>Anagh <span>&amp;</span> Ganga</h1>
+                <p class="hero-subtitle">Invite you to celebrate their wedding</p>
+                <p class="hero-copy">With joy in their hearts, they request the pleasure of your company and blessings
+                    as they begin this new chapter together.</p>
+            </header>
 
-        <div class="pb-20 pt-10 relative z-10">
-            <!-- SECTION 1: Intro -->
-            <section class="pt-24 px-8 text-center reveal">
-                <p class="font-heading text-[0.7rem] text-gold tracking-[0.2em] mb-6 uppercase">Joyfully Inviting You</p>
-                <h2 class="font-script text-[2.7rem] md:text-5xl text-olive leading-tight mb-2 drop-shadow-sm">This is the Start of</h2>
-                <h2 class="font-script text-[2.7rem] md:text-5xl text-olive leading-tight drop-shadow-sm">Something Beautiful</h2>
-            </section>
-
-            <!-- SECTION 2: Welcoming (Groom side emphasis) -->
-            <section class="mt-12 px-8 text-center reveal">
-                <p class="font-body text-[1.05rem] text-charcoal/90 leading-loose italic">
-                    We joyfully invite you and your family to join us in celebrating our wedding reception
-                </p>
-                
-                <!-- Decorative Divider -->
-                <div class="flex items-center justify-center my-10 opacity-80">
-                    <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent"></div>
-                    <svg class="w-5 h-5 mx-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                    <div class="w-20 h-[1px] bg-gradient-to-l from-transparent via-gold to-transparent"></div>
-                </div>
-            </section>
-
-            <!-- SECTION 3: Couple Details -->
-            <section class="mt-4 px-6 text-center reveal">
-                <!-- Groom -->
-                <h1 class="font-heading text-[1.7rem] sm:text-[2.2rem] text-olive mb-3 tracking-[0.05em] sm:tracking-[0.15em] drop-shadow-md whitespace-nowrap">DR. ANAGH K N</h1>
-                <p class="font-body text-[0.85rem] text-charcoal/85 tracking-widest leading-relaxed mb-10">
-                    S/o. Krishnankutty K N (Late)<br>& Sheeba M M<br>'VARADHA'<br>Nechinathil, Chenakkalangadi<br>Thenhippalam. Mob: 9446309279
-                </p>
-
-                <!-- Illustration Placeholder 1 (Full Size) -->
-                <div class="flex justify-center mb-10 reveal relative z-10 px-4">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-gold/20 blur-2xl rounded-full"></div>
-                        <img src="assets/couple_full.jpeg" alt="Couple Illustration" class="rounded-xl shadow-lg mx-auto border-4 border-white/50 relative z-10 w-full object-cover">
-                        <!-- Extra Corner Accents -->
-                        <div class="absolute -top-3 -left-3 w-10 h-10 border-t-[1.5px] border-l-[1.5px] border-gold z-20"></div>
-                        <div class="absolute -bottom-3 -right-3 w-10 h-10 border-b-[1.5px] border-r-[1.5px] border-gold z-20"></div>
+            <div class="photo-wrap reveal">
+                <div class="photo-frame" id="mainPhotoFrame">
+                    <img src="assets/couple_full.jpeg" alt="Anagh and Ganga" fetchpriority="high">
+                    <div class="photo-fallback" aria-hidden="true">
+                        <span class="monogram">A <span style="color:var(--gold)">&amp;</span> G</span>
+                        <small>Couple portrait</small>
                     </div>
                 </div>
+            </div>
 
-                <!-- Bride -->
-                <h1 class="font-heading text-[1.7rem] sm:text-[2.2rem] text-olive mb-3 tracking-[0.05em] sm:tracking-[0.15em] drop-shadow-md whitespace-nowrap">DR. GANGA P P</h1>
-                <p class="font-body text-[0.85rem] text-charcoal/85 tracking-widest leading-relaxed mb-10">
-                    D/o. Raghuthaman P P<br>& Sreeja P V<br>Puthiya Purayil<br>Chooliyad, Malappattam<br>Kannur
-                </p>
-
-                <!-- Illustration Placeholder 2 (Close-up Selfie) -->
-                <div class="flex justify-center mb-6 reveal relative z-10 px-16">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-gold/20 blur-xl rounded-full"></div>
-                        <img src="assets/selfie_couple.jpeg" alt="Couple Selfie" class="rounded-full shadow-lg mx-auto border-4 border-white/50 relative z-10 aspect-square object-cover">
-                        <div class="absolute -top-1 -left-1 w-8 h-8 border-t-[1.5px] border-l-[1.5px] border-gold z-20 rounded-tl-full"></div>
-                        <div class="absolute -bottom-1 -right-1 w-8 h-8 border-b-[1.5px] border-r-[1.5px] border-gold z-20 rounded-br-full"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 4: Primary Reception Details -->
-            <section class="mt-28 px-8 text-center reveal">
-                <!-- Flourish element -->
-                <svg class="w-14 h-14 mx-auto text-gold/70 mb-4 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
+            <div class="ornament" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M12 3.5c-1.7 3.2-4.2 5.6-7.7 8.5 3.5 2.9 6 5.3 7.7 8.5 1.7-3.2 4.2-5.6 7.7-8.5-3.5-2.9-6-5.3-7.7-8.5Z"
+                        stroke="currentColor" stroke-width="1.2" />
+                    <path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width=".8" />
                 </svg>
+            </div>
 
-                <p class="font-body italic text-charcoal/80 text-[1.1rem] mb-3">Reception on</p>
-                <h2 class="font-heading text-[1.3rem] tracking-[0.15em] font-bold text-olive uppercase mb-3">Monday 30th November 2026</h2>
-                <p class="font-body italic text-charcoal/80 mb-5">Between 3pm to 9 pm</p>
-                
-                <div class="py-2 mb-8">
-                    <p class="italic text-sm text-charcoal/60 mb-2 font-serif">at</p>
-                    <p class="font-heading font-bold tracking-[0.1em] text-[1.05rem] text-olive leading-loose">CENTURY CONVENTION CENTRE, CHELARI</p>
-                </div>
+            <section class="section reveal" aria-labelledby="reception-title">
+                <p class="eyebrow">The celebration</p>
+                <h2 class="section-heading" id="reception-title">Wedding Reception</h2>
+                <p class="section-intro">We would be delighted to celebrate this special evening with you.</p>
+                <article class="event-card">
+                    <p class="event-label">Wedding reception</p>
+                    <p class="event-date">30</p>
+                    <p class="event-weekday">Monday · November 2026</p>
+                    <p class="event-time">3:00 PM – 9:00 PM <span aria-label="India Standard Time">· IST</span></p>
+                    <p class="event-venue">Century Convention Centre</p>
+                    <p class="event-address">Chelari</p>
+                    <div class="actions">
+                        <a class="button primary" href="https://maps.app.goo.gl/k3rFXvT1gthBPjAv6" target="_blank"
+                            rel="noopener noreferrer" aria-label="Open reception venue in Google Maps">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor"
+                                    stroke-width="1.7" />
+                                <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7" />
+                            </svg>
+                            Directions
+                        </a>
+                        <button class="button" type="button" data-calendar="all">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor"
+                                    stroke-width="1.6" />
+                                <path d="M7 3v4M17 3v4M3 10h18" stroke="currentColor" stroke-width="1.6" />
+                            </svg>
+                            Save dates
+                        </button>
+                    </div>
+                </article>
+            </section>
 
-                <!-- Live Location Button -->
-                <div class="flex justify-center reveal">
-                    <a href="https://maps.app.goo.gl/k3rFXvT1gthBPjAv6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-3.5 border-[1.5px] border-olive/70 text-olive hover:bg-olive hover:text-white transition-all duration-300 font-heading text-[0.85rem] tracking-[0.2em] uppercase rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(74,93,63,0.15)] bg-white/60 backdrop-blur-md">
-                        View on Google Maps
-                    </a>
+            <section class="section reveal" aria-labelledby="couple-title">
+                <p class="eyebrow">The families</p>
+                <h2 class="section-heading" id="couple-title">With the blessings of</h2>
+                <div class="family-grid">
+                    <article class="family-card">
+                        <h3>DR. ANAGH K N</h3>
+                        <p>S/o. Krishnankutty K N (Late) &amp; Sheeba M M<br>“VARADHA”<br>Nechinathil,
+                            Chenakkalangadi<br>Thenhippalam</p>
+                        <a class="family-contact" href="tel:+919446309279">+91 94463 09279</a>
+                    </article>
+                    <article class="family-card">
+                        <h3>DR. GANGA P P</h3>
+                        <p>D/o. Raghuthaman P P &amp; Sreeja P V<br>Puthiya Purayil<br>Chooliyad, Malappattam<br>Kannur
+                        </p>
+                    </article>
                 </div>
             </section>
 
-            <!-- SECTION 5: Save the Date & Calendar -->
-            <section class="mt-32 px-6 text-center reveal">
-                <h3 class="font-heading text-[1.1rem] tracking-[0.25em] text-olive font-semibold mb-8 uppercase">NOVEMBER - 2026</h3>
-                
-                <!-- Elegant Mini Calendar -->
-                <div class="max-w-[280px] mx-auto bg-white/70 p-6 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-md ornate-border">
-                    <div class="grid grid-cols-7 gap-y-5 gap-x-2 text-[0.9rem] font-heading">
-                        <!-- Days Header -->
-                        <div class="font-bold text-highlight">S</div>
-                        <div class="text-charcoal/60 font-bold">M</div>
-                        <div class="text-charcoal/60 font-bold">T</div>
-                        <div class="text-charcoal/60 font-bold">W</div>
-                        <div class="text-charcoal/60 font-bold">T</div>
-                        <div class="text-charcoal/60 font-bold">F</div>
-                        <div class="text-charcoal/60 font-bold">S</div>
-                        
-                        <!-- Week 1 -->
-                        <div class="text-charcoal/80">1</div>
-                        <div class="text-charcoal/80">2</div>
-                        <div class="text-charcoal/80">3</div>
-                        <div class="text-charcoal/80">4</div>
-                        <div class="text-charcoal/80">5</div>
-                        <div class="text-charcoal/80">6</div>
-                        <div class="text-charcoal/80">7</div>
-                        <!-- Week 2 -->
-                        <div class="text-charcoal/80">8</div>
-                        <div class="text-charcoal/80">9</div>
-                        <div class="text-charcoal/80">10</div>
-                        <div class="text-charcoal/80">11</div>
-                        <div class="text-charcoal/80">12</div>
-                        <div class="text-charcoal/80">13</div>
-                        <div class="text-charcoal/80">14</div>
-                        <!-- Week 3 -->
-                        <div class="text-charcoal/80">15</div>
-                        <div class="text-charcoal/80">16</div>
-                        <div class="text-charcoal/80">17</div>
-                        <div class="text-charcoal/80">18</div>
-                        <div class="text-charcoal/80">19</div>
-                        <div class="text-charcoal/80">20</div>
-                        <div class="text-charcoal/80">21</div>
-                        <!-- Week 4 -->
-                        <div class="text-charcoal/80">22</div>
-                        <div class="text-charcoal/80">23</div>
-                        <div class="text-charcoal/80">24</div>
-                        <div class="text-charcoal/80">25</div>
-                        <div class="text-charcoal/80">26</div>
-                        <div class="text-charcoal/80">27</div>
-                        <div class="text-charcoal/80">28</div>
-                        <!-- Week 5 (Highlighting the 30th) -->
-                        <div class="text-charcoal/80">29</div>
-                        <div class="text-olive font-bold text-[1.1rem] cal-highlight">30</div>
-                        <div></div><div></div><div></div><div></div><div></div>
+            <div class="secondary-photo reveal">
+                <div class="photo-frame" id="secondaryPhotoFrame">
+                    <img src="assets/selfie_couple.jpeg" alt="A closer photograph of Anagh and Ganga" loading="lazy">
+                    <div class="photo-fallback" aria-hidden="true">
+                        <span class="monogram">A <span style="color:var(--gold)">&amp;</span> G</span>
+                        <small>Another favourite moment</small>
                     </div>
                 </div>
+                <p class="secondary-caption">A little moment, a lifetime ahead.</p>
+            </div>
 
-                <!-- ADD TO CALENDAR BUTTON -->
-                <div class="mt-8 flex justify-center">
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception:+Anagh+%26+Ganga&dates=20261130T093000Z/20261130T153000Z&details=Reception+of+Dr.+Anagh+and+Dr.+Ganga&location=Century+Convention+Centre,+Chelari" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="inline-block px-6 py-2.5 rounded-full border-[1.5px] border-olive/70 text-olive bg-white/60 backdrop-blur-sm text-[0.85rem] tracking-widest font-body uppercase hover:bg-olive hover:text-white transition duration-300 shadow-sm">
-                        Add to Calendar
-                    </a>
+            <section class="section reveal" aria-labelledby="countdown-title">
+                <p class="eyebrow">The day is getting closer</p>
+                <h2 class="section-heading" id="countdown-title">Counting down to the celebration</h2>
+                <div class="countdown" role="timer" aria-live="off" aria-label="Countdown to the wedding reception">
+                    <div class="count-box"><span class="count-number" id="days">—</span><span
+                            class="count-label">Days</span></div>
+                    <div class="count-box"><span class="count-number" id="hours">—</span><span
+                            class="count-label">Hours</span></div>
+                    <div class="count-box"><span class="count-number" id="minutes">—</span><span
+                            class="count-label">Minutes</span></div>
+                    <div class="count-box"><span class="count-number" id="seconds">—</span><span
+                            class="count-label">Seconds</span></div>
                 </div>
+                <p class="count-note" id="countdown-note">Until Monday, 30 November 2026 · 3:00 PM IST</p>
+            </section>
 
-                <!-- Delicate Horizontal Ornament -->
-                <div class="flex items-center justify-center mt-14 mb-6 opacity-70">
-                    <div class="w-12 h-[1px] bg-olive/60"></div>
-                    <svg class="w-3 h-3 mx-3 text-olive/80" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"></path>
+            <section class="section reveal" aria-labelledby="ceremony-title">
+                <p class="eyebrow">The wedding ceremony</p>
+                <h2 class="section-heading" id="ceremony-title">The marriage will be solemnised</h2>
+                <article class="ceremony-card">
+                    <p class="ceremony-date">29 November 2026</p>
+                    <p class="event-weekday">Sunday</p>
+                    <p class="ceremony-time">Muhurtham · 10:00 AM – 10:45 AM IST</p>
+                    <p class="ceremony-venue">Kadeeja’s Auditorium</p>
+                    <p class="ceremony-address">Kuttavu Road, Irikkur, Kannur</p>
+                    <div class="actions">
+                        <a class="button" href="https://maps.app.goo.gl/5M7kdzWSkgNTnqC7A" target="_blank"
+                            rel="noopener noreferrer" aria-label="Open wedding ceremony venue in Google Maps">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor"
+                                    stroke-width="1.7" />
+                                <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7" />
+                            </svg>
+                            Ceremony directions
+                        </a>
+                        <button class="button" type="button" data-calendar="ceremony">Add ceremony</button>
+                    </div>
+                </article>
+            </section>
+
+            <section class="section calendar-section reveal" aria-labelledby="calendar-title">
+                <p class="eyebrow">Keep these days close</p>
+                <h2 class="section-heading" id="calendar-title">November 2026</h2>
+                <div class="calendar"
+                    aria-label="November 2026 calendar, with 29 November marked for the ceremony and 30 November marked for the reception">
+                    <p class="calendar-title">NOVEMBER · 2026</p>
+                    <div class="calendar-grid" aria-hidden="true">
+                        <span class="day-name">SUN</span><span class="day-name">MON</span><span
+                            class="day-name">TUE</span><span class="day-name">WED</span><span
+                            class="day-name">THU</span><span class="day-name">FRI</span><span
+                            class="day-name">SAT</span>
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                        <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+                        <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+                        <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+                        <span class="ceremony-day" title="Wedding ceremony">29</span><span class="reception-day"
+                            title="Wedding reception">30</span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="calendar-key"><span class="key-item"><i class="key-dot"></i> Ceremony</span><span
+                            class="key-item"><i class="key-dot reception"></i> Reception</span></div>
+                </div>
+            </section>
+
+            <footer class="closing reveal">
+                <div class="ornament" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M12 20s-7.5-4.6-7.5-10.1A4.1 4.1 0 0 1 12 7.7a4.1 4.1 0 0 1 7.5 2.2C19.5 15.4 12 20 12 20Z"
+                            stroke="currentColor" stroke-width="1.3" />
                     </svg>
-                    <div class="w-12 h-[1px] bg-olive/60"></div>
                 </div>
-
-                <!-- Vertically Stacked Typography -->
-                <div class="flex flex-col items-center justify-center mb-3">
-                    <h2 class="font-thin-caps font-light text-[3rem] text-olive tracking-[0.3em] leading-none ml-3">SAVE</h2>
-                    <span class="font-script text-[2.2rem] text-olive leading-none -my-2 lowercase opacity-90">the</span>
-                    <h2 class="font-thin-caps font-light text-[3rem] text-olive tracking-[0.3em] leading-none ml-3">DATE</h2>
+                <p class="closing-copy">Your presence and blessings will make our celebration even more special. We look
+                    forward to celebrating with you.</p>
+                <p class="closing-names">With love, Anagh &amp; Ganga</p>
+                <div class="actions">
+                    <button class="button primary" id="shareButton" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.6" />
+                            <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.6" />
+                            <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.6" />
+                            <path d="m8.7 10.6 6.6-4.2M8.7 13.4l6.6 4.2" stroke="currentColor" stroke-width="1.6" />
+                        </svg>
+                        Share invitation
+                    </button>
+                    <a class="button" id="whatsappLink"
+                        href="https://wa.me/?text=You%27re%20invited%20to%20celebrate%20the%20wedding%20of%20Anagh%20%26%20Ganga%20on%2030%20November%202026."
+                        target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
                 </div>
-            </section>
-
-            <!-- SECTION 6: Secondary Marriage Details -->
-            <section class="mt-28 px-8 text-center reveal">
-                <!-- Divider element -->
-                <div class="flex items-center justify-center mb-10 opacity-60">
-                    <div class="w-16 h-[1px] bg-olive/50"></div>
-                    <div class="w-2 h-2 mx-3 bg-gold/70 rotate-45"></div>
-                    <div class="w-16 h-[1px] bg-olive/50"></div>
-                </div>
-                
-                <p class="font-body text-charcoal/90 italic leading-relaxed mb-6">
-                    Marriage will be solemnised on 29th November 2026<br>
-                    At Kadeeja's Auditorium, Kuttavu Road, Irikkur, Kannur<br>
-                    Muhurtham: 10.00am to 10.45am
-                </p>
-
-                <!-- Buttons Stack -->
-                <div class="flex flex-col gap-4 items-center reveal mt-4">
-                    <a href="https://maps.app.goo.gl/5M7kdzWSkgNTnqC7A" target="_blank" rel="noopener noreferrer" class="w-56 inline-flex items-center justify-center px-6 py-2.5 border-[1px] border-olive/60 text-olive hover:bg-olive hover:text-white transition-all duration-300 font-heading text-[0.75rem] tracking-[0.15em] uppercase rounded-full shadow-sm bg-white/50 backdrop-blur-sm">
-                        Marriage Location
-                    </a>
-                    
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony:+Anagh+%26+Ganga&dates=20261129T043000Z/20261129T051500Z&details=Wedding+Muhurtham+of+Dr.+Anagh+and+Dr.+Ganga&location=Kadeeja's+Auditorium,+Kuttavu+Road,+Irikkur,+Kannur" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="w-56 inline-flex items-center justify-center px-6 py-2.5 border-[1px] border-olive/60 text-olive hover:bg-olive hover:text-white transition-all duration-300 font-heading text-[0.75rem] tracking-[0.15em] uppercase rounded-full shadow-sm bg-white/50 backdrop-blur-sm">
-                        Add to Calendar
-                    </a>
-                </div>
-            </section>
-
-            <!-- SECTION 7: Closing -->
-            <section class="mt-32 px-10 text-center reveal mb-10">
-                <p class="font-body text-[1rem] text-charcoal/85 leading-loose italic">
-                    Your presence and Blessings will extend the Joy and Smile on our face !!
-                </p>
-                
-                <div class="flex items-center justify-center my-10 opacity-80">
-                    <div class="w-14 h-[1px] bg-gradient-to-r from-transparent to-gold"></div>
-                    <div class="mx-4 text-highlight text-xl">♥</div>
-                    <div class="w-14 h-[1px] bg-gradient-to-l from-transparent to-gold"></div>
-                </div>
-
-                <h2 class="font-heading text-[2.2rem] text-olive tracking-[0.25em] font-bold">THANK YOU</h2>
-            </section>
-        </div>
-
-        <!-- Bottom right decorative leaf -->
-        <svg class="deco-leaf leaf-br w-72 h-72 text-olive" viewBox="0 0 100 100" fill="currentColor">
-             <path d="M10,90 Q10,10 90,10 Q60,40 10,90 Z" opacity="0.6"/>
-             <path d="M20,95 Q0,30 80,0 Q60,50 20,95 Z" opacity="0.4" class="text-gold"/>
-             <path d="M15,85 Q5,40 60,10 Q40,60 15,85 Z" opacity="0.2" class="text-leaf-green"/>
-        </svg>
-
+                <p class="footer-note">With joy · November 2026</p>
+            </footer>
+        </main>
     </div>
 
-    <!-- Scroll Animation Script -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const reveals = document.querySelectorAll(".reveal");
+        document.documentElement.classList.add('js');
 
-            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+        // Keep the countdown anchored to the event's stated India Standard Time.
+        const receptionAt = new Date('2026-11-30T15:00:00+05:30');
+        const countdownEls = {
+            days: document.getElementById('days'),
+            hours: document.getElementById('hours'),
+            minutes: document.getElementById('minutes'),
+            seconds: document.getElementById('seconds'),
+            note: document.getElementById('countdown-note')
+        };
+        function updateCountdown() {
+            const remaining = receptionAt.getTime() - Date.now();
+            if (remaining <= 0) {
+                Object.values(countdownEls).slice(0, 4).forEach(el => { el.textContent = '0'; });
+                countdownEls.note.textContent = 'The celebration day has arrived. We look forward to seeing you!';
+                return;
+            }
+            const totalSeconds = Math.floor(remaining / 1000);
+            countdownEls.days.textContent = Math.floor(totalSeconds / 86400);
+            countdownEls.hours.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, '0');
+            countdownEls.minutes.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            countdownEls.seconds.textContent = String(totalSeconds % 60).padStart(2, '0');
+        }
+        updateCountdown();
+        window.setInterval(updateCountdown, 1000);
+
+        // Reveal animation is progressive enhancement; content stays visible without JS.
+        const revealItems = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add("active");
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            });
+            }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+            revealItems.forEach(item => observer.observe(item));
+        } else {
+            revealItems.forEach(item => item.classList.add('is-visible'));
+        }
 
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
+        // Show an intentional, styled fallback instead of a broken-image icon when assets are absent.
+        document.querySelectorAll('.photo-frame img').forEach(img => {
+            const showFallback = () => img.closest('.photo-frame').classList.add('image-missing');
+            img.addEventListener('error', showFallback, { once: true });
+            // A cached/failed image can finish before this listener is attached (notably on fast loads).
+            if (img.complete && img.naturalWidth === 0) showFallback();
+        });
+
+        // Calendar download contains both events; the ceremony button downloads only the ceremony.
+        const events = {
+            ceremony: {
+                uid: 'anagh-ganga-ceremony-20261129',
+                title: 'Wedding Ceremony — Anagh & Ganga',
+                start: '20261129T043000Z', end: '20261129T051500Z',
+                location: 'Kadeeja’s Auditorium, Kuttavu Road, Irikkur, Kannur',
+                description: 'Wedding ceremony and muhurtham of Dr. Anagh K N and Dr. Ganga P P. 10:00 AM–10:45 AM IST.'
+            },
+            reception: {
+                uid: 'anagh-ganga-reception-20261130',
+                title: 'Wedding Reception — Anagh & Ganga',
+                start: '20261130T093000Z', end: '20261130T153000Z',
+                location: 'Century Convention Centre, Chelari',
+                description: 'Wedding reception of Dr. Anagh K N and Dr. Ganga P P. 3:00 PM–9:00 PM IST.'
+            }
+        };
+        const icsEscape = value => String(value).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+        function downloadCalendar(which) {
+            const selected = which === 'ceremony' ? [events.ceremony] : [events.ceremony, events.reception];
+            const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+            const lines = [
+                'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Anagh and Ganga//Wedding Invitation//EN',
+                'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'
+            ];
+            selected.forEach(event => {
+                lines.push(
+                    'BEGIN:VEVENT', `UID:${event.uid}@anagh-ganga-invite`, `DTSTAMP:${stamp}`,
+                    `DTSTART:${event.start}`, `DTEND:${event.end}`, `SUMMARY:${icsEscape(event.title)}`,
+                    `LOCATION:${icsEscape(event.location)}`, `DESCRIPTION:${icsEscape(event.description)}`,
+                    'END:VEVENT'
+                );
             });
-            
-            setTimeout(() => {
-                reveals.forEach(reveal => {
-                    const rect = reveal.getBoundingClientRect();
-                    if(rect.top < window.innerHeight) {
-                        reveal.classList.add("active");
-                    }
-                });
-            }, 100);
+            lines.push('END:VCALENDAR');
+            const blob = new Blob([lines.join('\r\n') + '\r\n'], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const anchor = document.createElement('a');
+            anchor.href = url;
+            anchor.download = which === 'ceremony' ? 'anagh-ganga-wedding-ceremony.ics' : 'anagh-ganga-wedding-dates.ics';
+            document.body.appendChild(anchor);
+            anchor.click();
+            anchor.remove();
+            window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+        }
+        document.querySelectorAll('[data-calendar]').forEach(button => {
+            button.addEventListener('click', () => downloadCalendar(button.dataset.calendar));
+        });
+
+        const shareText = 'You’re invited to celebrate the wedding of Dr. Anagh K N and Dr. Ganga P P. Wedding ceremony: 29 November 2026, 10:00–10:45 AM at Kadeeja’s Auditorium, Irikkur. Reception: 30 November 2026, 3:00–9:00 PM at Century Convention Centre, Chelari.';
+        const pageUrl = window.location.href;
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText} ${pageUrl}`)}`;
+        document.getElementById('whatsappLink').href = whatsappUrl;
+        document.getElementById('shareButton').addEventListener('click', async () => {
+            if (navigator.share) {
+                try { await navigator.share({ title: 'Anagh & Ganga — Wedding Invitation', text: shareText, url: pageUrl }); }
+                catch (error) { if (error.name !== 'AbortError') window.open(whatsappUrl, '_blank', 'noopener,noreferrer'); }
+            } else {
+                window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            }
         });
     </script>
     <div class="w-full text-center pb-4 mt-12">
-        <a href="https://www.flaticon.com/free-icons/invite" title="invite icons" target="_blank" rel="noopener noreferrer" class="text-[10px] text-gray-400/50 hover:text-gray-500 transition-colors">
+        <a href="https://www.flaticon.com/free-icons/invite" target="_blank" rel="noopener noreferrer">
             Favicon icon by Smashicons - Flaticon
         </a>
     </div>
 </body>
+
 </html>
